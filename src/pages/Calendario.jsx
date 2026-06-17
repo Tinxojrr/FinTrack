@@ -3,7 +3,7 @@ import { supabase } from "../supabase"
 import { motion, AnimatePresence } from "framer-motion"
 import Navbar from "../components/Navbar"
 
-export default function Calendario({ session }) {
+export default function Calendario({ session, perfil }) {
   const [pagos, setPagos] = useState([])
   const [nombre, setNombre] = useState("")
   const [monto, setMonto] = useState("")
@@ -65,7 +65,7 @@ export default function Calendario({ session }) {
 
   return (
     <div className="min-h-screen bg-zinc-950">
-      <Navbar session={session} />
+      <Navbar session={session} perfil={perfil} />
       <div className="p-6 max-w-2xl mx-auto">
 
         <motion.div

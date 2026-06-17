@@ -65,7 +65,7 @@ export default function Planes({ session, perfil }) {
 
   return (
     <div className="min-h-screen bg-zinc-950">
-      <Navbar session={session} />
+      <Navbar session={session} perfil={perfil} />
       <div className="p-6 max-w-5xl mx-auto">
 
         <motion.div
