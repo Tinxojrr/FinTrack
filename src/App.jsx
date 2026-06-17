@@ -3,6 +3,9 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import { supabase } from "./supabase"
 import Login from "./pages/Login"
 import Dashboard from "./pages/Dashboard"
+import Calendario from "./pages/Calendario"
+import Perfil from "./pages/Perfil"
+import Planes from "./pages/Planes"
 
 function App() {
   const [session, setSession] = useState(null)
@@ -45,6 +48,9 @@ function App() {
       <Routes>
         <Route path="/" element={!session ? <Login /> : <Navigate to="/dashboard" />} />
         <Route path="/dashboard" element={session ? <Dashboard session={session} perfil={perfil} /> : <Navigate to="/" />} />
+        <Route path="/calendario" element={session ? <Calendario session={session} /> : <Navigate to="/" />} />
+        <Route path="/perfil" element={session ? <Perfil session={session} perfil={perfil} /> : <Navigate to="/" />} />
+        <Route path="/planes" element={session ? <Planes session={session} perfil={perfil} /> : <Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
   )
