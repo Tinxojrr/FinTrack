@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard"
 import Calendario from "./pages/Calendario"
 import Perfil from "./pages/Perfil"
 import Planes from "./pages/Planes"
+import Landing from "./pages/Landing"
 
 function App() {
   const [session, setSession] = useState(null)
@@ -46,7 +47,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={!session ? <Login /> : <Navigate to="/dashboard" />} />
+        <Route path="/" element={!session ? <Landing /> : <Navigate to="/dashboard" />} />
+        <Route path="/login" element={!session ? <Login /> : <Navigate to="/dashboard" />} />
         <Route path="/dashboard" element={session ? <Dashboard session={session} perfil={perfil} /> : <Navigate to="/" />} />
         <Route path="/calendario" element={session ? <Calendario session={session} perfil={perfil} /> : <Navigate to="/" />} />
         <Route path="/perfil" element={session ? <Perfil session={session} perfil={perfil} /> : <Navigate to="/" />} />
